@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly | Luxury Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  overflow-x: hidden;
+  padding-top: 90px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== GLOBAL CONTAINER ===== */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== NAVBAR ===== */
+
+/* ===== FIXED HEADER ===== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* logo */
+
+.logo img {
+  height: 40px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* nav + buttons container */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* nav links */
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2ec4b6;
+}
+
+/* auth buttons */
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login {
+  padding: 8px 16px;
+  border: 1px solid #2ec4b6;
+  color: #2ec4b6;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background: #2ec4b6;
+  color: #fff;
+}
+
+.btn-register {
+  background: #2ec4b6;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-register:hover {
+  background: #25a99d;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* abstract shapes */
+
+.shape1,
+.shape2 {
+  position: absolute;
+  background: #2ec4b6;
+  opacity: 0.15;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.shape1 {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+}
+
+.shape2 {
+  width: 600px;
+  height: 600px;
+  right: -200px;
+  bottom: -200px;
+}
+
+/* hero layout */
+
+.hero-content {
+  flex: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: #2ec4b6;
+}
+
+.hero p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  background: #111;
+  color: #fff;
+  padding: 12px 22px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+.price {
+  font-size: 22px;
+  color: #2ec4b6;
+  font-weight: 600;
+}
+
+/* hero image */
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 90%;
+  max-width: 500px;
+}
+
+/* ===== SERVICES ===== */
+
+.services {
+  padding: 100px 0;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.services-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.services-header p {
+  color: #777;
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.service-card {
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+  background: #2ec4b6;
+  color: #fff;
+  font-size: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.service-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  header {
+    flex-direction: row;       /* ← important */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: none;             /* hide desktop nav */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+/* ===== PROPERTY ===== */
+
+.property {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.property-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.property-header h2 {
+  font-size: 36px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-6px);
+}
+
+.property-img {
+  position: relative;
+}
+
+.property-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* badges */
+
+.badge {
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.badge.rent {
+  background: #f2994a;
+}
+
+.badge.sale {
+  background: #2ec4b6;
+}
+
+/* property info */
+
+.property-info {
+  padding: 30px 20px 20px;
+}
+
+.property-info h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.property-info .price {
+  color: #2ec4b6;
+  font-weight: 600;
+}
+
+.property-info p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ===== DREAM BANNER ===== */
+
+.dream-banner {
+  height: 320px;
+  background: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("assets/images/site images/bc1.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* overlay content */
+
+.dream-overlay {
+  text-align: center;
+  color: #fff;
+  padding: 40px;
+  max-width: 800px;
+}
+
+.dream-overlay h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.dream-overlay p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.dream-btn {
+  padding: 12px 26px;
+  background: #2ec4b6;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dream-btn:hover {
+  background: #25a99d;
+}
+
+/* ===== ABOUT ===== */
+
+.about {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.about-content h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-about {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-about.primary {
+  background: #2ec4b6;
+  color: #fff;
+}
+
+.btn-about.secondary {
+  background: #f2994a;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== HOW IT WORKS ===== */
+
+.how {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.how-header {
+  margin-bottom: 60px;
+}
+
+.how-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.how-header p {
+  color: #777;
+  max-width: 500px;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 60px;
+  text-align: center;
+}
+
+.how-card {
+  position: relative;
+}
+
+.how-number {
+  width: 90px;
+  height: 90px;
+  background: #2ec4b6;
+  color: #fff;
+  font-size: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.how-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.how-card p {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== CTA PROMO BANNER ===== */
+
+.cta-banner {
+  height: 320px;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("assets/images/site images/work-3.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-overlay {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.cta-overlay h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.cta-price {
+  background: #2ec4b6;
+  padding: 5px 12px;
+  border-radius: 6px;
+}
+
+.cta-overlay p {
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #2ec4b6;
+  color: #fff;
+}
+
+/* ===== AGENTS ===== */
+
+.agents {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.agents-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.agents-header h2 {
+  font-size: 36px;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.agent-card h3 {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.agent-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+.agent-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.agent-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.agent-img:hover img {
+  transform: scale(1.05);
+}
+
+/* overlay */
+
+.agent-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* ===== BLOG ===== */
+
+.blog {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.blog-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.blog-header p {
+  color: #777;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.blog-img {
+  position: relative;
+}
+
+.blog-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* date badge */
+
+.blog-date {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.blog-date span {
+  font-size: 28px;
+  display: block;
+}
+
+.blog-date small {
+  font-size: 11px;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-btn {
+  background: #2ec4b6;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* ===== TESTIMONIALS ===== */
+
+.testimonials {
+  padding: 100px 0;
+  background: #2ec4b6;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonials-header {
+  margin-bottom: 60px;
+}
+
+.testimonials-header small {
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.testimonials-header h2 {
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.testimonial-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.testimonial-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.testimonial-card h4 {
+  margin-bottom: 5px;
+}
+
+.testimonial-card span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ===== CONTACT ===== */
+
+.contact {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-header small {
+  letter-spacing: 2px;
+  color: #2ec4b6;
+}
+
+.contact-header h2 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.contact-header p {
+  color: #777;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* info cards */
+
+.info-card {
+  background: #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.info-card h4 {
+  margin-bottom: 5px;
+}
+
+/* form */
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.contact-btn {
+  background: #2ec4b6;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #2ec4b6;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MIRROR FOOTER ===== */
+
+.mirror-footer {
+  background: #f3f4f8;
+  padding: 80px 0 30px;
+  color: #333;
+}
+
+.mirror-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.mirror-col h3,
+.mirror-col h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.mirror-col p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.mirror-col ul {
+  list-style: none;
+}
+
+.mirror-col ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #2ec4b6;
+  cursor: pointer;
+}
+
+/* socials */
+
+.mirror-socials a {
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  background: #2ec4b6;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* bottom copyright */
+
+.mirror-bottom {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== FOOTER LOGO ===== */
+
+.footer-logo {
+  height: 45px;
+  margin-bottom: 15px;
+}
+
+/* ===== MODERN SOCIAL ICONS ===== */
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Brand Colors */
+
+.social-icons .gmail {
+  background: #ea4335;
+}
+
+.social-icons .linkedin {
+  background: #0a66c2;
+}
+
+.social-icons .facebook {
+  background: #1877f2;
+}
+
+.social-icons .instagram {
+  background: #e1306c;
+}
+
+/* Hover Animation */
+
+.social-icons a:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   GLOBAL ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+
+/* =========================================
+   HERO FLOATING SHAPES
+========================================= */
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.shape1, .shape2 {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* =========================================
+   BUTTON HOVER EFFECT
+========================================= */
+
+.btn,
+.btn-login,
+.btn-register,
+.dream-btn,
+.cta-btn,
+.contact-btn,
+.blog-btn,
+.btn-about {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after,
+.btn-login::after,
+.btn-register::after,
+.dream-btn::after,
+.cta-btn::after,
+.contact-btn::after,
+.blog-btn::after,
+.btn-about::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+}
+
+.btn:hover::after,
+.btn-login:hover::after,
+.btn-register:hover::after,
+.dream-btn:hover::after,
+.cta-btn:hover::after,
+.contact-btn:hover::after,
+.blog-btn:hover::after,
+.btn-about:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   CARD HOVER UPGRADE
+========================================= */
+
+.property-card,
+.blog-card,
+.agent-card,
+.service-card,
+.info-card {
+  transition: all 0.35s ease;
+}
+
+.property-card:hover,
+.blog-card:hover,
+.agent-card:hover,
+.service-card:hover,
+.info-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   IMAGE ZOOM ON HOVER
+========================================= */
+
+.property-img img,
+.blog-img img,
+.about-image img {
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover img,
+.blog-card:hover img,
+.about-image:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   NAV LINK UNDERLINE ANIMATION
+========================================= */
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #2ec4b6;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   FOOTER LINK HOVER
+========================================= */
+
+.mirror-col ul li {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mirror-col ul li:hover {
+  transform: translateX(6px);
+  color: #1fa89b;
+}
+
+.mirror-col ul li a {
+  text-decoration: none;
+  color: #2ec4b6;
+  transition: all 0.2s ease;
+}
+
+.mirror-col ul li a:hover {
+  color: #1fa89b;
+}
+
+/* =========================================
+   HERO ENTRANCE ANIMATION
+========================================= */
+
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroFade 1s ease forwards;
+}
+
+.hero-content small { animation-delay: 0.2s; }
+.hero-content h1 { animation-delay: 0.4s; }
+.hero-content p { animation-delay: 0.6s; }
+.hero-buttons { animation-delay: 0.8s; }
+
+@keyframes heroFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   PREMIUM CARD 3D HOVER
+========================================= */
+
+.property-card,
+.blog-card,
+.agent-card,
+.service-card,
+.testimonial-card,
+.info-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.property-card:hover,
+.blog-card:hover,
+.agent-card:hover,
+.service-card:hover,
+.testimonial-card:hover,
+.info-card:hover {
+  transform: translateY(-12px) scale(1.03) rotateX(3deg);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   ICON PULSE ANIMATION
+========================================= */
+
+.icon {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46,196,182,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(46,196,182,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,196,182,0); }
+}
+
+/* =========================================
+   BADGE BOUNCE
+========================================= */
+
+.badge {
+  animation: badgeBounce 2.5s infinite;
+}
+
+@keyframes badgeBounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* =========================================
+   TESTIMONIAL IMAGE HOVER
+========================================= */
+
+.testimonial-card img {
+  transition: transform 0.4s ease;
+}
+
+.testimonial-card:hover img {
+  transform: scale(1.15) rotate(3deg);
+}
+
+/* =========================================
+   IMAGE PARALLAX HOVER
+========================================= */
+
+.hero-image img {
+  transition: transform 0.6s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* =========================================
+   FORM INPUT ANIMATION
+========================================= */
+
+.contact-form input,
+.contact-form textarea {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2ec4b6;
+  box-shadow: 0 0 10px rgba(46,196,182,0.4);
+  outline: none;
+}
+
+/* =========================================
+   HEADER SCROLL EFFECT
+========================================= */
+
+header.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Professional Contact Form */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2ec4b6;
+  box-shadow: 0 0 0 3px rgba(46,196,182,0.15);
+  outline: none;
+}
+
+.contact-btn {
+  margin-top: 10px;
+  background: #2ec4b6;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #25a99d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* ================================
+   HOW IT WORKS — ADVANCED ANIMATION
+================================ */
+
+/* Card base animation */
+
+.how-card {
+  background: #fff;
+  padding: 35px 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient hover overlay */
+
+.how-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(46,196,182,0.12),
+    rgba(46,196,182,0.03)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Card hover effect */
+
+.how-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.how-card:hover::before {
+  opacity: 1;
+}
+
+/* Animated number circle */
+
+.how-number {
+  transition: all 0.4s ease;
+}
+
+.how-card:hover .how-number {
+  transform: scale(1.2) rotate(8deg);
+  box-shadow: 0 0 25px rgba(46,196,182,0.5);
+}
+
+/* Pulse animation */
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 rgba(46,196,182,0.4); }
+  50% { box-shadow: 0 0 25px rgba(46,196,182,0.8); }
+  100% { box-shadow: 0 0 0 rgba(46,196,182,0.4); }
+}
+
+.how-number {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Text slide animation */
+
+.how-card h3,
+.how-card p {
+  transition: transform 0.35s ease;
+}
+
+.how-card:hover h3 {
+  transform: translateY(-4px);
+}
+
+.how-card:hover p {
+  transform: translateY(-2px);
+}
+
+/* Staggered reveal animation */
+
+.how-card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.how-card:nth-child(1) { animation-delay: 0.1s; }
+.how-card:nth-child(2) { animation-delay: 0.25s; }
+.how-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* =====================================
+   ULTRA MOBILE FIX — 360px DEVICES
+===================================== */
+
+@media (max-width: 360px) {
+
+  /* container padding */
+
+  .container {
+    padding: 12px;
+  }
+
+  /* ===== HEADER ===== */
+
+  header {
+    padding: 12px 10px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  nav a {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-login,
+  .btn-register {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  /* ===== HERO ===== */
+
+  .hero {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* hide oversized shapes */
+
+  .shape1,
+  .shape2 {
+    display: none;
+  }
+
+  /* ===== SECTION HEADERS ===== */
+
+  .services-header h2,
+  .property-header h2,
+  .agents-header h2,
+  .blog-header h2,
+  .contact-header h2,
+  .how-header h2,
+  .testimonials-header h2 {
+    font-size: 24px;
+  }
+
+  /* ===== SERVICES GRID ===== */
+
+  .services-grid,
+  .property-grid,
+  .agents-grid,
+  .blog-grid,
+  .testimonials-grid,
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* ===== CARDS ===== */
+
+  .service-card,
+  .property-card,
+  .agent-card,
+  .blog-card,
+  .how-card {
+    padding: 18px;
+  }
+
+  .property-img img {
+    height: 200px;
+  }
+
+  .agent-img img {
+    height: 250px;
+  }
+
+  /* ===== BANNERS ===== */
+
+  .dream-banner,
+  .cta-banner {
+    height: auto;
+    padding: 50px 10px;
+  }
+
+  .dream-overlay h2,
+  .cta-overlay h2 {
+    font-size: 22px;
+  }
+
+  .dream-overlay p,
+  .cta-overlay p {
+    font-size: 14px;
+  }
+
+  /* ===== ABOUT ===== */
+
+  .about-grid {
+    gap: 30px;
+  }
+
+  .about-content h2 {
+    font-size: 22px;
+  }
+
+  .about-buttons {
+    flex-direction: column;
+  }
+
+  .btn-about {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===== CONTACT ===== */
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    padding: 15px;
+  }
+
+  /* ===== FOOTER ===== */
+
+  .mirror-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .mirror-col h4 {
+    font-size: 16px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .mirror-bottom {
+    font-size: 12px;
+  }
+
+}
+
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ===== MOBILE FULLSCREEN MENU ===== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+.mobile-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+
+.mobile-nav a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #333;
+}
+
+.mobile-auth {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 200px;
+}
+
+/* ===== MOBILE RESPONSIVE HEADER ===== */
+
+@media (max-width: 900px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+    </a>
+  </div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <!-- Mobile Fullscreen Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-close" id="mobileClose">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="404.html">About</a>
+      <a href="404.html">Services</a>
+      <a href="404.html">Contact</a>
+      <a href="404.html">Dashboard</a>
+    </nav>
+
+    <div class="mobile-auth">
+      <a href="404.html" class="btn-login">Login</a>
+      <a href="404.html" class="btn-register">Register</a>
+    </div>
+
+  </div>
+
+  <!-- Desktop Nav (unchanged) -->
+  <div class="nav-right desktop-nav">
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="404.html">About</a>
+      <a href="404.html">Services</a>
+      <a href="404.html">Contact</a>
+      <a href="404.html">Dashboard</a>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="404.html" class="btn-login">Login</a>
+      <a href="404.html" class="btn-register">Register</a>
+    </div>
+
+  </div>
+
+</header>
+
+<section class="hero">
+
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+
+  <div class="hero-content">
+
+    <small style="color:#2ec4b6;font-weight:600;">
+      WE MAKE YOUR HOME BETTER
+    </small>
+
+    <h1>
+      Luxurious Home <br>
+      <span>For Sale</span>
+    </h1>
+
+    <p>
+      Lorem ipsum is simply dummy text of the printing
+      and typesetting industry.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="404.html" class="btn">Read More</a>
+      <div class="price">Start from $150,000</div>
+    </div>
+
+  </div>
+
+  <div class="hero-image">
+    <img src="assets/images/site images/Hero_House.webp" alt="House">
+  </div>
+
+</section>
+
+</div>
+
+<!-- ===== SERVICES SECTION ===== -->
+
+<section class="services">
+
+  <div class="services-header">
+    <h2>Our Services</h2>
+    <p>
+      Far far away, behind the word mountains, far from the
+      countries Vokalia and Consonantia
+    </p>
+  </div>
+
+  <div class="services-grid reveal">
+
+    <div class="service-card">
+      <div class="icon">🏠</div>
+      <h3>Find Places Anywhere in the World</h3>
+      <p>
+        A small river named Duden flows by their place and
+        supplies it with the necessary regelialia.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🕴️</div>
+      <h3>We have agents</h3>
+      <p>
+        A small river named Duden flows by their place and
+        supplies it with the necessary regelialia.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🏡</div>
+      <h3>Buy & Rent Modern Properties</h3>
+      <p>
+        A small river named Duden flows by their place and
+        supplies it with the necessary regelialia.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">💰</div>
+      <h3>Making Money</h3>
+      <p>
+        A small river named Duden flows by their place and
+        supplies it with the necessary regelialia.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== PROPERTY SECTION ===== -->
+
+<section class="property">
+  <div class="container">
+
+    <div class="property-header">
+      <h2>Our Property</h2>
+    </div>
+
+    <div class="property-grid reveal">
+
+      <!-- Card 1 -->
+      <div class="property-card">
+        <div class="property-img">
+          <img src="assets/images/site images/work-1.webp" alt="Property">
+          <span class="badge rent">Rent</span>
+        </div>
+
+        <div class="property-info">
+          <h3>
+            Faazil Subdivision
+            <span class="price">$50/mo</span>
+          </h3>
+          <p>New York — 3bds, 2bath</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="property-card">
+        <div class="property-img">
+          <img src="assets/images/site images/work-2.webp" alt="Property">
+          <span class="badge sale">Sale</span>
+        </div>
+
+        <div class="property-info">
+          <h3>
+            Fatima Subdivision
+            <span class="price">$120,000</span>
+          </h3>
+          <p>New York — 3bds, 2bath</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="property-card">
+        <div class="property-img">
+          <img src="assets/images/site images/work-3.webp" alt="Property">
+          <span class="badge rent">Rent</span>
+        </div>
+
+        <div class="property-info">
+          <h3>
+            Faizal Subdivision
+            <span class="price">$120/mo</span>
+          </h3>
+          <p>New York — 3bds, 2bath</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DREAM HOUSE BANNER ===== -->
+
+<section class="dream-banner">
+  <div class="dream-overlay">
+
+    <h2>Choose Your Dream House</h2>
+    <p>
+      We can manage your dream building. A small river named
+      Duden flows by their place.
+    </p>
+
+<a href="404.html">
+  <button class="dream-btn">Search Places</button>
+</a>
+
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+
+<section class="about">
+  <div class="container about-grid">
+
+    <div class="about-image">
+      <img src="assets/images/site images/house_63.webp" alt="Family">
+    </div>
+
+    <div class="about-content">
+
+      <h2>Stackly Real Estate Agency</h2>
+
+      <p>
+        A small river named Duden flows by their place and
+        supplies it with the necessary regelialia. It is a
+        paradisematic country, in which roasted parts of sentences
+        fly into your mouth.
+      </p>
+
+      <p>
+        Even the all-powerful Pointing has no control about the
+        blind texts it is an almost unorthographic life One day
+        however a small line of blind text by the name of Lorem
+        Ipsum decided to leave for the far World of Grammar.
+      </p>
+
+      <div class="about-buttons">
+        <a href="404.html" class="btn-about primary">Book now</a>
+        <a href="404.html" class="btn-about secondary">Contact us</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+
+<section class="how">
+
+  <div class="container">
+
+    <div class="how-header">
+      <h2>How it works</h2>
+      <p>
+        Far far away, behind the word mountains,
+        far from the countries Vokalia and Consonantia
+      </p>
+    </div>
+
+    <div class="how-grid">
+
+      <!-- Step 1 -->
+      <div class="how-card">
+        <div class="how-number">1</div>
+        <h3>Evaluate Your Property</h3>
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="how-card">
+        <div class="how-number">2</div>
+        <h3>Meet Your Agent</h3>
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="how-card">
+        <div class="how-number">3</div>
+        <h3>Close the deal</h3>
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== CTA PROMO BANNER ===== -->
+
+<section class="cta-banner">
+
+  <div class="cta-overlay">
+
+    <h2>
+      Choose Your House for <br>
+      Only <span class="cta-price">$120,000</span>
+    </h2>
+
+    <p>
+      Far far away, behind the word mountains,
+      far from the countries Vokalia and Consonantia.
+    </p>
+
+    <a href="404.html" class="cta-btn">Advance Search</a>
+
+  </div>
+
+</section>
+
+<!-- ===== AGENTS ===== -->
+
+<section class="agents">
+
+  <div class="container">
+
+    <div class="agents-header">
+      <h2>Our Agents</h2>
+    </div>
+
+    <div class="agents-grid">
+
+      <!-- Agent 1 -->
+      <div class="agent-card">
+        <div class="agent-img">
+          <img src="assets/images/site images/team-4.webp" alt="Agent">
+          <div class="agent-overlay">I'm an agent</div>
+        </div>
+        <h3>Jessy Thomson</h3>
+        <p>Listing — 27 Properties</p>
+      </div>
+
+      <!-- Agent 2 -->
+      <div class="agent-card">
+        <div class="agent-img">
+          <img src="assets/images/site images/team-2.webp" alt="Agent">
+          <div class="agent-overlay">I'm an agent</div>
+        </div>
+        <h3>James Stallon</h3>
+        <p>Listing — 22 Properties</p>
+      </div>
+
+      <!-- Agent 3 -->
+      <div class="agent-card">
+        <div class="agent-img">
+          <img src="assets/images/site images/team-3.webp" alt="Agent">
+          <div class="agent-overlay">I'm an agent</div>
+        </div>
+        <h3>Julie Henry</h3>
+        <p>Listing — 35 Properties</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== BLOG ===== -->
+
+<section class="blog">
+
+  <div class="container">
+
+    <div class="blog-header">
+      <h2>Our Blog</h2>
+      <p>
+        Far far away, behind the word mountains,
+        far from the countries Vokalia and Consonantia
+      </p>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Blog Card -->
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-1.webp" alt="">
+          <div class="blog-date">
+            <span>12</span>
+            <small>2019<br>April</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy this card 5 more times -->
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-2.webp" alt="">
+          <div class="blog-date">
+            <span>25</span>
+            <small>2020<br>April</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-1.webp" alt="">
+          <div class="blog-date">
+            <span>13</span>
+            <small>2021<br>May</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-2.webp" alt="">
+          <div class="blog-date">
+            <span>27</span>
+            <small>2022<br>May</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-1.webp" alt="">
+          <div class="blog-date">
+            <span>14</span>
+            <small>2023<br>June</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="assets/images/site images/insidehome-2.webp" alt="">
+          <div class="blog-date">
+            <span>29</span>
+            <small>2024<br>June</small>
+          </div>
+        </div>
+
+        <div class="blog-content">
+          <h3>Why Lead Generation is Key for Business Growth</h3>
+          <p>
+            A small river named Duden flows by their place and
+            supplies it with the necessary regelialia.
+          </p>
+
+          <div class="blog-footer">
+            <a href="404.html" class="blog-btn">Read More →</a>
+            <span>Admin • 6</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+
+<section class="testimonials">
+
+  <div class="container">
+
+    <div class="testimonials-header">
+      <small>READ TESTIMONIALS</small>
+      <h2>What Client Says</h2>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <img src="assets/images/site images/testy1.webp" alt="">
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+        <h4>Syed Nazeer</h4>
+        <span>Artist</span>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <img src="assets/images/site images/testy2.webp" alt="">
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+        <h4>Lakshmi Imraan</h4>
+        <span>Artist</span>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <img src="assets/images/site images/testy3.webp" alt="">
+        <p>
+          Far far away, behind the word mountains, far from the
+          countries Vokalia and Consonantia, there live the blind texts.
+        </p>
+        <h4>David Jeffry</h4>
+        <span>Artist</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== CONTACT ===== -->
+
+<section class="contact">
+
+  <div class="container">
+
+    <div class="contact-header">
+      <small>CONTACT</small>
+      <h2>Contact Me</h2>
+      <p>
+        Far far away, behind the word mountains,
+        far from the countries Vokalia and Consonantia
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+
+        <div class="info-card">
+          <h4>📍 Address</h4>
+          <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+        </div>
+
+        <div class="info-card">
+          <h4>📞 Contact Number</h4>
+          <p>+ 1235 2355 98</p>
+        </div>
+
+        <div class="info-card">
+          <h4>✉ Email Address</h4>
+          <p>info@stackly.com</p>
+        </div>
+
+        <div class="info-card">
+          <h4>🌐 Website</h4>
+          <p>yourstackly.com</p>
+        </div>
+
+      </div>
+
+      <!-- Professional Contact Form -->
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Enter subject" required>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="6" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <button type="submit" class="contact-btn">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== MIRRORED FOOTER ===== -->
+<footer class="mirror-footer">
+
+  <div class="container mirror-grid">
+
+    <!-- Brand -->
+    <div class="mirror-col brand-col">
+
+      <!-- Logo same as header -->
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+    </a>
+  </div>
+
+      <p>
+        Far far away, behind the word mountains,
+        far from the countries.
+      </p>
+
+      <!-- Modern Social Icons -->
+      <div class="social-icons">
+
+        <a href="404.html" class="gmail">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="404.html" class="linkedin">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="404.html" class="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="404.html" class="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+<!-- Community -->
+<div class="mirror-col">
+  <h4>Community</h4>
+  <ul>
+    <li><a href="404.html">→ Search Properties</a></li>
+    <li><a href="404.html">→ For Agents</a></li>
+    <li><a href="404.html">→ Reviews</a></li>
+    <li><a href="404.html">→ FAQs</a></li>
+  </ul>
+</div>
+
+<!-- About -->
+<div class="mirror-col">
+  <h4>About Us</h4>
+  <ul>
+    <li><a href="404.html">→ Our Story</a></li>
+    <li><a href="404.html">→ Meet the team</a></li>
+    <li><a href="404.html">→ Careers</a></li>
+  </ul>
+</div>
+
+<!-- Company -->
+<div class="mirror-col">
+  <h4>Company</h4>
+  <ul>
+    <li><a href="404.html">→ About Us</a></li>
+    <li><a href="404.html">→ Press</a></li>
+    <li><a href="404.html">→ Contact</a></li>
+    <li><a href="404.html">→ Careers</a></li>
+  </ul>
+</div>
+
+    <!-- Contact -->
+    <div class="mirror-col">
+      <h4>Have a Questions?</h4>
+      <p>📍 198 West 21th Street, Suite 721 New York NY 10016</p>
+      <p>📞 + 1235 2355 98</p>
+      <p>✉ info@stackly.com</p>
+    </div>
+
+  </div>
+
+  <div class="mirror-bottom">
+    <p>© 2026 Stackly — All rights reserved</p>
+  </div>
+
+</footer>
+
+<script>
+/* ===== Scroll Reveal ===== */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('section, .property-card, .service-card, .agent-card, .blog-card, .testimonial-card')
+  .forEach(el => observer.observe(el));
+
+/* ===== Header Scroll Animation ===== */
+
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  header.classList.toggle("scrolled", window.scrollY > 30);
+});
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Simulate successful submission
+  window.location.href = "404.html";
+});
+</script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileClose = document.getElementById("mobileClose");
+
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+});
+
+mobileClose.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+});
+</script>
+
+</body>
+</html>

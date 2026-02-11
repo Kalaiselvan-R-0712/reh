@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly – Banking Solutions</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: #ffffff;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 42px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-login {
+      background: #1f1f1f;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn-account {
+      background: #f1f1f1;
+      color: #222;
+      padding: 10px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* ===== Update Bar ===== */
+    .update-bar {
+      background: #c8102e;
+      color: #fff;
+      padding: 10px 6%;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      height: 85vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('assets/images/site%20images/bc2.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 6%;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 26px;
+      opacity: 0.9;
+    }
+
+    .hero-btn {
+      background: #e5e5e5;
+      color: #222;
+      padding: 14px 26px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Side Action Buttons */
+/* ===== Hero Action Buttons FIXED ===== */
+
+.side-actions {
+  position: absolute;
+  left: 6%;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+}
+
+.side-actions a {
+  display: block;
+  min-width: 260px;
+  text-align: center;
+  padding: 14px 28px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #c8102e;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}
+
+.side-actions a:hover {
+  background: #a60c25;
+  transform: translateY(-2px);
+}
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 24px 6%;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .side-actions {
+        left: 6%;
+        bottom: 20px;
+      }
+    }
+
+    /* ===== Better Tomorrow Section ===== */
+.better-section {
+  background: #efe9e2;
+  padding: 80px 6%;
+  text-align: center;
+}
+
+.better-section h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #1b1b1b;
+}
+
+.better-section p.subtitle {
+  color: #6b6b6b;
+  margin-bottom: 60px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.feature-card {
+  padding: 20px;
+}
+
+.feature-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  background: #e6ded6;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #8a8a8a;
+  font-size: 22px;
+}
+
+.feature-card h4 {
+  color: #c8102e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #6b6b6b;
+  margin-bottom: 16px;
+}
+
+.read-more {
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ===== Banking Needs Section ===== */
+.needs-section {
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url('assets/images/site%20images/gg4.webp') center/cover no-repeat;
+  padding: 90px 6%;
+  color: #fff;
+}
+
+.needs-section h2 {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.needs-section .subtitle {
+  color: #bdbdbd;
+  margin-bottom: 40px;
+}
+
+/* Tabs */
+.needs-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  flex: 1;
+  min-width: 260px;
+  padding: 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.tab.light {
+  background: #e9e6e2;
+  color: #222;
+}
+
+.tab small {
+  opacity: 0.7;
+}
+
+.tab h3 {
+  font-size: 26px;
+  margin-top: 6px;
+}
+
+/* Cards */
+.needs-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.needs-card {
+  background: rgba(20,20,25,0.9);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px;
+}
+
+.needs-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.needs-card p {
+  color: #bdbdbd;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.needs-card a {
+  color: #ff4b5c;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Button */
+.view-services {
+  text-align: center;
+}
+
+.view-services a {
+  background: #e5e5e5;
+  color: #222;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* ===== Wealth Section ===== */
+.wealth-section {
+  background: #f2f2f2;
+  padding: 80px 6%;
+  text-align: center;
+}
+
+.wealth-section h2 {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.wealth-section .subtitle {
+  color: #777;
+  margin-bottom: 50px;
+}
+
+/* Cards Grid */
+.wealth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.wealth-card {
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: left;
+}
+
+.wealth-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+/* Card Label */
+.wealth-label {
+  background: #1f7aa8;
+  color: #fff;
+  padding: 14px 18px;
+  font-weight: 600;
+}
+
+.wealth-card p {
+  padding: 18px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ===== Emergency Section ===== */
+.emergency-section {
+  background: #efe9e2;
+  padding: 80px 6%;
+}
+
+.emergency-section h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.emergency-section .subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 50px;
+}
+
+/* Category Row */
+.emergency-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.category {
+  padding: 20px;
+}
+
+.category-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 12px;
+  border: 2px solid #c8102e; /* red border for all */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #c8102e; /* optional: red icon color */
+}
+
+/* Content Layout */
+.emergency-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.service-list {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.service-item {
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item:hover {
+  background: #f7f7f7;
+}
+
+/* Call Banner */
+.call-banner {
+  position: relative;
+  color: #fff;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url('assets/images/site%20images/gg2.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.call-banner h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.call-banner .phone {
+  color: #ff4b5c;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .emergency-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Card Personalize Section ===== */
+.card-section {
+  background: #f4f4f4;
+  padding: 80px 6%;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Image */
+.card-image img {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Right Content */
+.card-content h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.card-list {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.card-list li {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.card-list li::before {
+  content: "✔";
+  color: #c8102e;
+  margin-right: 8px;
+}
+
+/* Form */
+.card-form input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.card-form button {
+  background: #e5e5e5;
+  border: none;
+  padding: 14px 28px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .card-image img {
+    margin: auto;
+  }
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+  background: #f5f5f5;
+  padding: 80px 6%;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.faq-header h2 {
+  font-size: 40px;
+}
+
+.faq-header p {
+  color: #777;
+}
+
+.faq-search input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  width: 260px;
+}
+
+/* Layout */
+.faq-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Image */
+.faq-image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* FAQ Items */
+.faq-item {
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.faq-question {
+  padding: 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.faq-answer {
+  padding: 16px;
+  color: #666;
+  display: none;
+}
+
+/* Active FAQ */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-question {
+  color: #c8102e;
+}
+
+/* Bottom CTA */
+.faq-bottom {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.faq-bottom p {
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.faq-bottom button {
+  padding: 14px 28px;
+  border: none;
+  background: #e5e5e5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== EMI Section ===== */
+.emi-section {
+  background: #f5f5f5;
+  padding: 80px 6%;
+}
+
+.emi-section h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.emi-section .subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 50px;
+}
+
+.emi-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left Image */
+.emi-image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Sliders */
+.emi-controls label {
+  font-weight: 500;
+}
+
+.emi-controls input[type="range"] {
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+/* Result Card */
+.emi-result {
+  background: #fff;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.emi-result h3 {
+  margin-bottom: 10px;
+}
+
+.emi-result .emi-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.emi-result button {
+  padding: 12px 24px;
+  border: none;
+  background: #e5e5e5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .emi-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Footer Section ===== */
+.footer-section {
+  background: #0f1720;
+  color: #cbd5e1;
+}
+
+/* Top CTA */
+.footer-cta {
+  padding: 50px 6%;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-cta h3 {
+  font-size: 28px;
+  color: #fff;
+}
+
+.footer-cta p {
+  color: #9aa4b2;
+}
+
+.footer-cta-buttons button {
+  padding: 12px 22px;
+  border: none;
+  margin-left: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-download {
+  background: #fff;
+}
+
+.btn-contact {
+  background: #e11d48;
+  color: #fff;
+}
+
+/* Footer Grid */
+.footer-grid {
+  padding: 60px 6%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-grid h4 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-grid a {
+  display: block;
+  color: #9aa4b2;
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-grid a:hover {
+  color: #fff;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  padding: 30px 6%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-logo img {
+  height: 40px;
+}
+
+.footer-contact {
+  color: #9aa4b2;
+}
+
+.footer-links a {
+  margin-right: 12px;
+  color: #9aa4b2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* ===== Global Hover System ===== */
+a, button, .feature-card, .needs-card, .wealth-card,
+.service-item, .category, .tab, .footer-grid a,
+.hero-btn, .view-services a {
+
+  transition: all 0.25s ease;
+}
+
+.btn-login:hover {
+  background: #c8102e;
+  transform: translateY(-2px);
+}
+
+.btn-account:hover {
+  background: #ddd;
+  transform: translateY(-2px);
+}
+
+.hero-btn:hover,
+.side-actions a:hover,
+.view-services a:hover {
+  background: #c8102e;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-card:hover .feature-icon {
+  background: #c8102e;
+  color: #fff;
+}
+
+.needs-card:hover {
+  transform: translateY(-8px);
+  background: rgba(40,40,45,0.95);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.wealth-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.wealth-card img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.wealth-card:hover img {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+}
+
+.category:hover .category-icon {
+  background: #c8102e;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.service-item:hover {
+  background: #f0f0f0;
+  padding-left: 28px;
+}
+
+.card-image img {
+  transition: transform 0.4s ease;
+}
+
+.card-image img:hover {
+  transform: scale(1.05);
+}
+
+.faq-item:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.emi-result:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.btn-download:hover {
+  background: #ddd;
+  transform: translateY(-2px);
+}
+
+.btn-contact:hover {
+  background: #be123c;
+  transform: translateY(-2px);
+}
+
+/* ===== Global Animation System ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Base animation class */
+.animate {
+  opacity: 0;
+}
+
+.animate.show {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.animate:nth-child(1).show { animation-delay: 0.1s; }
+.animate:nth-child(2).show { animation-delay: 0.2s; }
+.animate:nth-child(3).show { animation-delay: 0.3s; }
+.animate:nth-child(4).show { animation-delay: 0.4s; }
+
+.footer-copyright {
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== FIXED RESPONSIVE MEDIA QUERIES ===== */
+
+/* For Tablets and smaller */
+@media (max-width: 900px) {
+  nav {
+    display: none; /* Hides the desktop nav */
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 5%;
+    text-align: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 6% 60px; /* Space for sticky header */
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  /* Move side buttons to be centered blocks on mobile */
+  .side-actions {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .side-actions a {
+    min-width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* For Phones (600px and down) */
+@media (max-width: 600px) {
+  .better-section h2, 
+  .needs-section h2, 
+  .wealth-section h2, 
+  .emergency-section h2, 
+  .card-content h2, 
+  .faq-header h2, 
+  .emi-section h2 {
+    font-size: 28px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-login, .btn-account {
+    width: 100%;
+    text-align: center;
+  }
+
+  .update-bar {
+    font-size: 12px;
+    padding: 10px 4%;
+  }
+
+  /* Sections Spacing */
+  .better-section, .needs-section, .wealth-section, 
+  .emergency-section, .card-section, .faq-section, .emi-section {
+    padding: 50px 5%;
+  }
+
+  /* Footer Adjustments */
+  .footer-cta {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .footer-cta-buttons button {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Emergency content grid fix */
+  .emergency-content {
+    grid-template-columns: 1fr;
+  }
+
+  .call-banner {
+    padding: 30px 15px;
+  }
+}
+
+/* ===== Hamburger Style ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #333;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Menu Container */
+    .mobile-menu {
+      display: none; /* Hidden by default */
+      position: absolute;
+      top: 70px; /* Adjust based on header height */
+      left: 0;
+      width: 100%;
+      background: #fff;
+      padding: 20px 6%;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    /* Toggle Class */
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav, .desktop-actions {
+        display: none; /* Hide standard nav and buttons */
+      }
+
+      .hamburger {
+        display: flex; /* Show hamburger */
+      }
+
+      header {
+        justify-content: space-between; /* Keep logo left, hamburger right */
+        padding: 14px 6%;
+      }
+
+      /* Fix for Hamburger "X" animation when active */
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+  nav {
+    display: none;
+  }
+
+  header {
+    flex-direction: row;   /* ← keep row layout */
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6%;
+  }
+
+  .header-actions {
+    display: none; /* hide desktop buttons */
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;                 /* FULL SCREEN */
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* center vertically */
+  align-items: center;
+  gap: 22px;
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #222;
+}
+
+.mobile-menu .btn-login,
+.mobile-menu .btn-account {
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+header {
+  position: relative;
+  z-index: 1000;
+}
+
+header {
+  background: #ffffff;
+  padding: 14px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+  position: fixed;   /* 🔥 THIS locks it */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 70px; /* adjust if header height changes */
+}
+
+.mobile-menu .btn-login {
+  background: #1f1f1f;
+  color: #fff !important;
+}
+
+.mobile-menu .btn-account {
+  background: #f1f1f1;
+  color: #222 !important;
+}
+
+.mobile-menu a:not(.btn-login):not(.btn-account) {
+  font-size: 20px;
+  text-decoration: none;
+  color: #222;
+}
+
+.deal-btn {
+  padding: 14px 28px;
+  border: none;
+  background: #e5e5e5;
+  color: #222;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.deal-btn:hover {
+  background: #c8102e;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.apply-btn {
+  padding: 12px 24px;
+  border: none;
+  background: #e5e5e5;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.apply-btn:hover {
+  background: #c8102e;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.apply-now-btn {
+  width: 100%;
+  padding: 14px 28px;
+  border: none;
+  background: #e5e5e5;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.apply-now-btn:hover {
+  background: #c8102e;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+<header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo/stackly_logo.webp" alt="Stackly">
+      </a>
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="404.html">About</a>
+      <a href="404.html">Services</a>
+      <a href="404.html">Contact</a>
+      <a href="404.html">Dashboard</a>
+    </nav>
+
+    <div class="header-actions desktop-actions">
+      <a href="404.html" class="btn-login">Login</a>
+      <a href="404.html" class="btn-account">Open an Account</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="404.html">About</a>
+      <a href="404.html">Services</a>
+      <a href="404.html">Contact</a>
+      <a href="404.html">Dashboard</a>
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+      <a href="404.html" class="btn-login" style="display: block; text-align: center; margin-bottom: 10px;">Login</a>
+      <a href="404.html" class="btn-account" style="display: block; text-align: center;">Open an Account</a>
+    </div>
+  </header>
+
+  <!-- Update Bar -->
+  <div class="update-bar">
+    Updates: Get up to 4%* on your Savings Account Balances with Stackly. More Details | Dear Customer, we have launched Video KYC facility for new customers.
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content animate">
+      <h1>Bank with the Happiest Customers in the World</h1>
+      <p>
+      </p>
+    </div>
+
+    <div class="side-actions">
+      <a href="404.html">Make An Appointment</a>
+      <a href="404.html">Make Payment and Enquiry</a>
+    </div>
+  </section>
+
+  <!-- Better Tomorrow Section -->
+<section class="better-section">
+  <h2>Bank For A Better Tomorrow</h2>
+  <p class="subtitle">Committed to helping our customers succeed.</p>
+
+  <div class="features">
+
+    <div class="feature-card animate">
+      <div class="feature-icon">01</div>
+      <h4>Fixed Deposit</h4>
+      <h3>Fixed Returns with Peace of Mind</h3>
+      <p>Must explain to you how work mistaken give you complete guide.</p>
+      <a href="404.html" class="read-more">Read More +</a>
+    </div>
+
+    <div class="feature-card animate">
+      <div class="feature-icon">02</div>
+      <h4>Current Account</h4>
+      <h3>Banking Solutions for a Business</h3>
+      <p>No one rejects dislikes avoids pleasures because it is trivial.</p>
+      <a href="404.html" class="read-more">Read More +</a>
+    </div>
+
+    <div class="feature-card animate">
+      <div class="feature-icon">03</div>
+      <h4>Mutual Funds</h4>
+      <h3>Our Strategies for Better Returns</h3>
+      <p>Except obtain some advantages from it but who has any right to find enjoy.</p>
+      <a href="404.html" class="read-more">Read More +</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Banking Needs Section -->
+<section class="needs-section">
+
+  <h2>Banking For Your Needs</h2>
+  <p class="subtitle">The bank that builds better relationships.</p>
+
+  <div class="needs-tabs">
+    <div class="tab">
+      <small>Banking for</small>
+      <h3>Individuals</h3>
+    </div>
+
+    <div class="tab light">
+      <small>Banking for</small>
+      <h3>Companies</h3>
+    </div>
+  </div>
+
+  <div class="needs-cards">
+
+    <div class="needs-card animate">
+      <h4>Consumer Loans</h4>
+      <p>Duty or the obligations of business will frequently occur repudiated.</p>
+      <a href="404.html">Check today's Interest Rates</a>
+    </div>
+
+    <div class="needs-card animate">
+      <h4>Online & Mobile</h4>
+      <p>Equal blame belongs to those who fail their duty through weakness.</p>
+      <a href="404.html">Terms & Conditions</a>
+    </div>
+
+    <div class="needs-card animate">
+      <h4>Savings & CDs</h4>
+      <p>Take trivial example which of us ever undertakes laborious.</p>
+      <a href="404.html">Interest rate up to 5% p.a</a>
+    </div>
+
+  </div>
+
+  <div class="view-services">
+    <a href="404.html">View All Services</a>
+  </div>
+
+</section>
+
+<!-- Wealth Section -->
+<section class="wealth-section">
+
+  <h2>Grow Your Wealth Secure</h2>
+  <p class="subtitle">
+    Don’t just make a deposit, make an investment today.
+  </p>
+
+  <div class="wealth-grid">
+
+    <div class="wealth-card animate">
+      <img src="assets/images/site images/mf.webp" alt="Mutual Funds">
+      <div class="wealth-label">Mutual Funds →</div>
+      <p>
+        The claims off duty or the obligations business it will frequently occur
+        that pleasures be repudiated.
+      </p>
+    </div>
+
+    <div class="wealth-card animate">
+      <img src="assets/images/site images/ps.webp" alt="Pension Scheme">
+      <div class="wealth-label">Pension Scheme →</div>
+      <p>
+        Demoralized and beguiled by charms pleasure of the moment so blinded
+        by they cannot and trouble.
+      </p>
+    </div>
+
+    <div class="wealth-card animate">
+      <img src="assets/images/site images/tf.webp" alt="Trades FX">
+      <div class="wealth-label">Trades FX →</div>
+      <p>
+        Beguiled and demoralized by charms pleasure of the moment so blinded
+        by they cannot and trouble.
+      </p>
+    </div>
+
+    <div class="wealth-card animate">
+      <img src="assets/images/site images/mc.webp" alt="Multi Currency">
+      <div class="wealth-label">Multi Currency a/c →</div>
+      <p>
+        Cases are perfectly simple & easy to distinguish in a free hour when
+        power of choice is prevents.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Emergency Section -->
+<section class="emergency-section">
+
+  <h2>Emergency Service Requests</h2>
+  <p class="subtitle">
+    List of banking service requests all in one place.
+  </p>
+
+  <!-- Categories -->
+  <div class="emergency-categories">
+
+    <div class="category animate">
+      <div class="category-icon">💳</div>
+      <p>Credit / Debit Card Related</p>
+    </div>
+
+    <div class="category animate">
+      <div class="category-icon">💻</div>
+      <p>Mobile / Internet Banking</p>
+    </div>
+
+    <div class="category animate">
+      <div class="category-icon">📄</div>
+      <p>Account Details Changing</p>
+    </div>
+
+    <div class="category animate">
+      <div class="category-icon">📘</div>
+      <p>Cheque Book / DD Related</p>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+<div class="emergency-content">
+
+  <div class="service-list">
+
+    <a href="404.html" class="service-item animate" style="text-decoration: none; color: inherit;">
+      <span>Block Debit / ATM Card</span>
+      <span>→</span>
+    </a>
+
+    <a href="404.html" class="service-item animate" style="text-decoration: none; color: inherit;">
+      <span>Generate Debit Card Pin Number</span>
+      <span>→</span>
+    </a>
+
+    <a href="404.html" class="service-item animate" style="text-decoration: none; color: inherit;">
+      <span>Unlock Debit / ATM Card</span>
+      <span>→</span>
+    </a>
+
+    <a href="404.html" class="service-item animate" style="text-decoration: none; color: inherit;">
+      <span>Reissue Lost Debit / ATM Card</span>
+      <span>→</span>
+    </a>
+
+  </div>
+
+    <!-- Call Banner -->
+    <div class="call-banner">
+      <div>
+        <h3>Call for Private Banking</h3>
+        <p class="phone">+8(222)123-456-78</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Card Personalize Section -->
+<section class="card-section">
+
+  <div class="card-container">
+
+    <!-- Left Image -->
+    <div class="card-image animate">
+      <img src="assets/images/site images/credit_card.webp" alt="Credit Card">
+    </div>
+
+    <!-- Right Content -->
+      <div class="card-content animate">
+
+      <h2>Personalize Your Card And Stand Out From Crowd</h2>
+
+      <p>
+        Desire that they cannot foresee the pain & trouble that are bound
+        too ensue equal blame belongs through shrinking.
+      </p>
+
+      <ul class="card-list">
+        <li>Great explorer of the master-builder</li>
+        <li>The master-builder of great explorer</li>
+      </ul>
+
+      <h4>Apply for Credit Card</h4>
+
+      <form class="card-form">
+        <input type="text" placeholder="Name">
+<button type="button" class="apply-now-btn"
+  onclick="window.location.href='404.html'">
+  Apply Now
+</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+
+  <div class="faq-header">
+    <div>
+      <h2>Questions & Answers</h2>
+      <p>Find answers to all your queries about our service.</p>
+    </div>
+
+  </div>
+
+  <div class="faq-container">
+
+    <!-- Left Image -->
+    <div class="faq-image animate">
+      <img src="assets/images/site images/pd.webp" alt="FAQ">
+    </div>
+
+    <!-- FAQ List -->
+    <div>
+
+      <div class="faq-item animate">
+        <div class="faq-question">
+          What is the minimum balance?
+        </div>
+        <div class="faq-answer">
+          Rationally encounter consequences that are extremely painful again
+          there anyone who loves or pursues desire.
+        </div>
+      </div>
+
+      <div class="faq-item animate">
+        <div class="faq-question">What is the rate of interest?</div>
+        <div class="faq-answer">Interest rates vary depending on account type.</div>
+      </div>
+
+      <div class="faq-item animate">
+        <div class="faq-question">
+          When will I receive my account statement?
+        </div>
+        <div class="faq-answer">Statements are generated monthly.</div>
+      </div>
+
+      <div class="faq-item animate">
+        <div class="faq-question">
+          Can I use any branch across India?
+        </div>
+        <div class="faq-answer">Yes, all branches are accessible nationwide.</div>
+      </div>
+
+      <div class="faq-item animate">
+        <div class="faq-question">
+          How safe/secure is our net banking a/c?
+        </div>
+        <div class="faq-answer">
+          We use advanced encryption for maximum security.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="faq-bottom">
+    <p>
+      Didn’t get it? Click below button to more answers or
+      <a href="404.html">contact us</a>.
+    </p>
+<button class="deal-btn" onclick="window.location.href='404.html'">
+  Grab Your Deals
+</button>
+  </div>
+
+</section>
+
+<!-- EMI Section -->
+<section class="emi-section">
+
+  <h2>Flexible EMI Calculator Online</h2>
+  <p class="subtitle">
+    Easily calculate your equated monthly instalment online.
+  </p>
+
+  <div class="emi-container">
+
+    <!-- Left Image -->
+<div class="emi-image animate">
+      <img src="assets/images/site images/mc.webp" alt="EMI">
+    </div>
+
+    <!-- Controls -->
+    <div class="emi-controls animate">
+
+      <label>Loan Amount: $<span id="loanAmountVal">100000</span></label>
+      <input type="range" id="loanAmount" min="10000" max="1000000" step="10000" value="100000">
+
+      <label>Loan Term (Years): <span id="loanTermVal">5</span></label>
+      <input type="range" id="loanTerm" min="1" max="20" value="5">
+
+      <label>Interest Rate (%): <span id="interestVal">8</span></label>
+      <input type="range" id="interestRate" min="1" max="15" step="0.1" value="8">
+
+      <!-- Result -->
+      <div class="emi-result">
+        <h3>Your Monthly EMI</h3>
+        <div class="emi-value">$<span id="emiOutput">0</span></div>
+        <button onclick="window.location.href='404.html'" class="apply-btn">
+  Apply Online
+</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="footer-section">
+
+  <!-- Grid -->
+  <div class="footer-grid animate">
+    <div>
+      <h4>Loans</h4>
+      <a href="404.html">Home Loan</a>
+      <a href="404.html">Personal Loan</a>
+      <a href="404.html">Vehicle Loan</a>
+      <a href="404.html">Education Loan</a>
+      <a href="404.html">Gold Loan</a>
+    </div>
+
+    <div>
+      <h4>Rates & Charges</h4>
+      <a href="404.html">About Us</a>
+      <a href="404.html">Testimonials</a>
+      <a href="404.html">Careers</a>
+      <a href="404.html">FAQ's</a>
+    </div>
+
+    <div>
+      <h4>About Us</h4>
+      <a href="404.html">Board of Directors</a>
+      <a href="404.html">Business</a>
+      <a href="404.html">Testimonials</a>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <a href="404.html">All Accounts</a>
+      <a href="404.html">Home Loan</a>
+      <a href="404.html">Personal Loan</a>
+      <a href="404.html">Vehicle Loan</a>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom animate">
+<div class="footer-logo">
+  <a href="index.html">
+    <img src="assets/images/logo/stackly_logo.webp" alt="Stackly">
+  </a>
+</div>
+
+
+    <div class="footer-contact">
+      <strong>+8(222)123-456-78</strong><br>
+      Mon – Fri: 9.30am to 6.30pm
+    </div>
+
+    <div class="footer-links">
+      <a href="404.html">About Us</a>
+      <a href="404.html">All Accounts</a>
+      <a href="404.html">Secured</a>
+      <a href="404.html">NRI Account</a>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-copyright">
+    © 2026 Stackly Banking Solutions. All rights reserved.
+  </div>
+
+</footer>
+
+<script>
+  document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
+      q.parentElement.classList.toggle("active");
+    });
+  });
+</script>
+
+<script>
+function calculateEMI() {
+  const P = parseFloat(document.getElementById("loanAmount").value);
+  const annualRate = parseFloat(document.getElementById("interestRate").value);
+  const years = parseFloat(document.getElementById("loanTerm").value);
+
+  const r = annualRate / 12 / 100;
+  const n = years * 12;
+
+  const emi = (P * r * Math.pow(1 + r, n)) /
+              (Math.pow(1 + r, n) - 1);
+
+  document.getElementById("emiOutput").textContent =
+    emi.toFixed(2);
+
+  document.getElementById("loanAmountVal").textContent = P;
+  document.getElementById("loanTermVal").textContent = years;
+  document.getElementById("interestVal").textContent = annualRate;
+}
+
+document.querySelectorAll("#loanAmount, #loanTerm, #interestRate")
+  .forEach(el => el.addEventListener("input", calculateEMI));
+
+calculateEMI();
+</script>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".animate").forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>
