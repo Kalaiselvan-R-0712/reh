@@ -10,6 +10,11 @@
 
 <style>
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1851,6 +1856,51 @@ header.scrolled {
   flex-wrap: wrap;
 }
 
+/* ===== FIXED HEADER (NO OVERFLOW VERSION) ===== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* inner header container (matches body width) */
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  overflow: hidden; /* prevents flex overflow */
+}
+
+/* prevent flex stretching */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+nav a {
+  white-space: nowrap;
+}
+
 </style>
 </head>
 
@@ -1858,53 +1908,34 @@ header.scrolled {
 
 <header>
 
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
-    </a>
-  </div>
+  <div class="header-inner">
 
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-
-  <!-- Mobile Fullscreen Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-
-    <div class="mobile-close" id="mobileClose">
-      <i class="fa-solid fa-xmark"></i>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo/stackly_logo.webp">
+      </a>
     </div>
 
-    <nav class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="404.html">About</a>
-      <a href="404.html">Services</a>
-      <a href="404.html">Contact</a>
-      <a href="404.html">Dashboard</a>
-    </nav>
-
-    <div class="mobile-auth">
-      <a href="404.html" class="btn-login">Login</a>
-      <a href="404.html" class="btn-register">Register</a>
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
     </div>
 
-  </div>
+    <!-- Desktop Nav -->
+    <div class="nav-right desktop-nav">
 
-  <!-- Desktop Nav (unchanged) -->
-  <div class="nav-right desktop-nav">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="404.html">About</a>
+        <a href="404.html">Services</a>
+        <a href="404.html">Contact</a>
+        <a href="404.html">Dashboard</a>
+      </nav>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="404.html">About</a>
-      <a href="404.html">Services</a>
-      <a href="404.html">Contact</a>
-      <a href="404.html">Dashboard</a>
-    </nav>
+      <div class="auth-buttons">
+        <a href="404.html" class="btn-login">Login</a>
+        <a href="404.html" class="btn-register">Register</a>
+      </div>
 
-    <div class="auth-buttons">
-      <a href="404.html" class="btn-login">Login</a>
-      <a href="404.html" class="btn-register">Register</a>
     </div>
 
   </div>
