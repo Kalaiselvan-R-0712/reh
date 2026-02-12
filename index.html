@@ -1700,12 +1700,161 @@ header.scrolled {
 
 }
 
+/* =================================
+   MASTER RESPONSIVE SYSTEM
+================================= */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+
+  .container {
+    padding: 20px 30px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+}
+
+
+/* Mobile devices */
+@media (max-width: 900px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  header {
+    padding: 12px 20px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* HERO */
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 40px 0;
+  }
+
+  .hero-content,
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* ABOUT */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* CONTACT */
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* Small phones */
+@media (max-width: 600px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn,
+  .btn-login,
+  .btn-register {
+    width: 100%;
+    text-align: center;
+  }
+
+  .property-img img,
+  .agent-img img {
+    height: auto;
+  }
+
+  .dream-banner,
+  .cta-banner {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+}
+
+
+/* Ultra small phones */
+@media (max-width: 380px) {
+
+  header {
+    padding: 10px 14px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .shape1,
+  .shape2 {
+    display: none;
+  }
+
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
 </style>
 </head>
 
 <body>
-
-<div class="container">
 
 <header>
 
@@ -1761,6 +1910,9 @@ header.scrolled {
   </div>
 
 </header>
+
+
+<div class="container">
 
 <section class="hero">
 
